@@ -29,14 +29,19 @@ namespace Vista.Account
 
         protected void LogIn(object sender, EventArgs e)
         {
-            Boolean success = false;
+            String success = "";
             if (Email.Text != "" && Password.Text != "")
             {
                 success=objDao.validateLogin(Email.Text.Trim(), Password.Text.Trim());
-                if (success)
+                if (success.CompareTo("2")==0)
                 {
-                    clearFields();
-                    Response.Redirect("/Pages/Main");
+                    Response.Redirect("/Pages/Reserva");
+                    string display = "Bienvenido";
+                    ClientScript.RegisterStartupScript(this.GetType(), "yourMessage", "alert('" + display + "');", true);
+                }
+                else if(success.CompareTo("1") == 0)
+                {
+                    Response.Redirect("/Pages/Vuelos");
                     string display = "Bienvenido";
                     ClientScript.RegisterStartupScript(this.GetType(), "yourMessage", "alert('" + display + "');", true);
                 }
@@ -45,6 +50,7 @@ namespace Vista.Account
                     string display = "Login Incorrecto";
                     ClientScript.RegisterStartupScript(this.GetType(), "yourMessage", "alert('" + display + "');", true);
                 }
+                clearFields();
             }
 
             else            {
