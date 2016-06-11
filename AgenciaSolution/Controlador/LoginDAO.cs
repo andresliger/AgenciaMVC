@@ -18,11 +18,11 @@ namespace Controlador
             usuarios = objF.mostrarUsuarios();
         }
 
-        public USUARIO validateLogin(String correo, String password)
+        public Boolean validateLogin(String correo, String password)
         {
             USUARIO aux;
             aux = usuarios.Where(s => s.USUARIO_CORREO.Equals(correo) && s.USUARIO_CONTRASENA.Equals(Utils.Encrypt.MD5HashMethod(password))).FirstOrDefault<USUARIO>();
-            return aux;
+            return aux != null ? true : false;
         }
 
 
