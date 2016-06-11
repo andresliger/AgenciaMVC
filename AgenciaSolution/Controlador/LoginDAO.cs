@@ -3,15 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelo;
 
 namespace Controlador
 {
     public class LoginDAO
     {
-        public static Boolean validateLogin(String username, String password)
+        private FacadeAgencia objF = new FacadeAgencia();
+        private List<USUARIO> usuarios;
+
+        public LoginDAO()
         {
-            Utils.Encrypt.MD5HashMethod(password);
-            return true;
+            objF = new FacadeAgencia();
+            usuarios = objF.mostrarUsuarios();
         }
+
+        public Boolean validateLogin(String correo, String password)
+        {
+            USUARIO aux;
+            aux = usuarios.Where(s => s.USUARIO_CORREO.Equals(correo) && s.USUARIO_CONTRASENA.Equals(Utils.Encrypt.MD5HashMethod(password))).FirstOrDefault<USUARIO>();
+            return aux != null ? true : false;
+        }
+
+
     }
 }

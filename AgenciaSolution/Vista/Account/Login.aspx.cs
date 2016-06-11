@@ -11,7 +11,9 @@ namespace Vista.Account
 {
     public partial class Login : Page
     {
-        
+
+        private LoginDAO objDao= new LoginDAO();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
@@ -30,7 +32,7 @@ namespace Vista.Account
             Boolean success = false;
             if (Email.Text != "" && Password.Text != "")
             {
-                success=LoginDAO.validateLogin(Email.Text.Trim(), Password.Text.Trim());
+                success=objDao.validateLogin(Email.Text.Trim(), Password.Text.Trim());
                 if (success)
                 {
                     clearFields();
