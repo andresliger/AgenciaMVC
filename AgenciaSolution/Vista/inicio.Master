@@ -53,7 +53,7 @@
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Registrar</a></li>
-                                <li><a runat="server" href="~/Account/Login">Iniciar Sesión</a></li>
+                                <li><a runat="server" href="~/Account/Login">Iniciar</a></li>
                             </ul>
                         </AnonymousTemplate>
                         

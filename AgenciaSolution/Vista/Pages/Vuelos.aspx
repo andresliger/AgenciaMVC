@@ -8,7 +8,7 @@
         <hr />
         
         hola soy un lado 
-        
+        asd
     </div>
     <div class="form-vertical">
         holasoy el otro lado
