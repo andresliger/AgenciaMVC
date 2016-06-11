@@ -7,9 +7,28 @@
     </p>
 
     <div class="form-horizontal">
-        <h4>Create a new account</h4>
+        <h4>Crear nueva cuenta de usuario</h4>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
+        
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="Name" CssClass="col-md-2 control-label">Nombre</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="Name" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
+                    CssClass="text-danger" ErrorMessage="The email field is required." />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="Phone" CssClass="col-md-2 control-label">Teléfono</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="Phone" CssClass="form-control" TextMode="Phone" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Phone"
+                    CssClass="text-danger" ErrorMessage="The email field is required." />
+            </div>
+        </div>
+
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">
@@ -38,7 +57,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Registro" CssClass="btn btn-default" />
             </div>
         </div>
     </div>
