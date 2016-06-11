@@ -208,9 +208,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <Content Include="Inicio.Master" />
+    <Content Include="cliente.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\Main.aspx" />
+    <Content Include="Pages\MainCliente.aspx" />
+    <Content Include="Pages\Reporte.aspx" />
     <Content Include="Pages\Reportes.aspx" />
+    <Content Include="Pages\Reserva.aspx" />
     <Content Include="Pages\Tarifas.aspx" />
     <Content Include="Pages\Usuario.aspx" />
     <Content Include="Pages\Vuelos.aspx" />
@@ -380,6 +384,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="cliente.Master.cs">
+      <DependentUpon>cliente.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cliente.Master.designer.cs">
+      <DependentUpon>cliente.Master</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,12 +423,33 @@
     <Compile Include="Pages\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainCliente.aspx.cs">
+      <DependentUpon>MainCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MainCliente.aspx.designer.cs">
+      <DependentUpon>MainCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reporte.aspx.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reporte.aspx.designer.cs">
+      <DependentUpon>Reporte.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Reportes.aspx.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Reportes.aspx.designer.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reserva.aspx.cs">
+      <DependentUpon>Reserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reserva.aspx.designer.cs">
+      <DependentUpon>Reserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Tarifas.aspx.cs">
       <DependentUpon>Tarifas.aspx</DependentUpon>
