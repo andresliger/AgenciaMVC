@@ -34,7 +34,7 @@
                    
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="LogIn" Text="Inicio Session" CssClass="btn btn-default" />
+                            <asp:Button runat="server" OnClick="LogIn" Text="Inicio Session" CssClass="btn btn-primary" ID="btnInicio" />
                         </div>
                     </div>
                 </div>
