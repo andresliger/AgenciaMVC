@@ -43,6 +43,7 @@
     <Compile Include="LoginDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroDAO.cs" />
+    <Compile Include="UsuarioDao.cs" />
     <Compile Include="Utils\Encrypt.cs" />
   </ItemGroup>
   <ItemGroup>
