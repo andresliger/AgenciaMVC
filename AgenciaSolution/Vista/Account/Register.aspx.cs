@@ -19,7 +19,14 @@ namespace Vista.Account
             if (validarCampos())
             {
                 success = RegistroDAO.registrarUsuario(Name.Text, Phone.Text, Email.Text, Password.Text);
-            }else
+                if (success)
+                {
+                    cleanFields();
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Información", "alert('Registro realizado con éxito.');", true);
+                    Response.Redirect("/Account/Login");
+                }
+            }
+            else
             {
                 //mensaje de que ingrese informacion correcta
             }
@@ -50,6 +57,15 @@ namespace Vista.Account
                 }
             }
             return true;
+        }
+
+        private void cleanFields()
+        {
+            Name.Text = "";
+            Phone.Text = "";
+            Email.Text = "";
+            Password.Text = "";
+            ConfirmPassword.Text = "";
         }
     }
 }
