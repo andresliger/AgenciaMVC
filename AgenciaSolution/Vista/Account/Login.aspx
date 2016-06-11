@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Vista.Account.Login" Async="true" %>
+﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Inicio.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Vista.Account.Login" Async="true" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.</h2>
+    <h2>Página Inicio Sesión</h2>
 
     <div class="row">
         <div class="col-md-8">
@@ -34,7 +34,7 @@
                    
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="LogIn" Text="Inicio Session" CssClass="btn btn-default" />
+                            <asp:Button runat="server" OnClick="LogIn" Text="Inicio Sesión" CssClass="btn btn-primary" />
                         </div>
                     </div>
                 </div>

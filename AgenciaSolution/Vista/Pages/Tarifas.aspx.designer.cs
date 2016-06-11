@@ -11,7 +11,7 @@ namespace Vista.Pages
 {
 
 
-    public partial class Main
+    public partial class Tarifas
     {
     }
 }
