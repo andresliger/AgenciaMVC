@@ -65,10 +65,13 @@ namespace Vista.Pages
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "Información", "alert('Registro realizado con éxito.');", true);
                 emptyFields();
+                emptyData();
+
             }
             else {
                 ScriptManager.RegisterStartupScript(this, GetType(), "Error", "alert('Ha ocurrido un error - Intente de nuevo.');", true);
                 emptyFields();
+                emptyData();
             }
         }
 
@@ -82,12 +85,24 @@ namespace Vista.Pages
             GridView1.DataBind();
         }
 
+        public void emptyData()
+        {
+            dropOrigen.SelectedIndex = 0;
+            dropDestino.SelectedIndex = 0;
+            txtNumero.Text = "0";
+        }
+
         protected void dropOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
             emptyFields();
         }
 
         protected void dropDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            emptyFields();
+        }
+
+        protected void txtNumero_TextChanged(object sender, EventArgs e)
         {
             emptyFields();
         }

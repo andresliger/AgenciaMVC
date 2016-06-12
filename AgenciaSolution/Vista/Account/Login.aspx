@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
-                    <h5 class="text-info">Use sus credenciales para el inicio de sesión</h5>
+                    <h4>Use sus credenciales para el inicio de sesión</h4>
                     <hr />
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
@@ -31,27 +31,25 @@
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
                         </div>
                     </div>
-                   
-                    <div class="form-group">
+
+                    <div class="row form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Inicio Sesión" CssClass="btn btn-primary" />
                         </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-offset-2 col-md-10">
+                            <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Registrar Nuevo Usuario</asp:HyperLink>
+                        </div>
                     </div>
                 </div>
-                <p>
-                    <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Registrar Nuevo Usuario</asp:HyperLink>
-                </p>
+
                 <p>
                     <%-- Enable this once you have account confirmation enabled for password reset functionality
                     <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
                     --%>
                 </p>
-            </section>
-        </div>
-
-        <div class="col-md-4">
-            <section id="socialLoginForm">
-                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
             </section>
         </div>
     </div>

@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Account/Register">Traveling Fast</a>
+                    <a class="navbar-brand" runat="server" href="#" aria-selected="undefined">Traveling Fast</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

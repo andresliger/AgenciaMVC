@@ -31,13 +31,13 @@ namespace Vista.Pages {
         protected global::System.Web.UI.WebControls.DropDownList dropOrigen;
         
         /// <summary>
-        /// Label2 control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
         /// dropDestino control.
@@ -47,6 +47,15 @@ namespace Vista.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dropDestino;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// txtNumero control.
@@ -92,6 +101,15 @@ namespace Vista.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
         /// dropTarifasDisponibles control.

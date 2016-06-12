@@ -27,7 +27,8 @@ namespace Vista.Pages
             Boolean success = false;
             if (validarCampos())
             {
-                success = objV.registrarVuelo(Origen.SelectedValue, Destino.SelectedValue, "2", Salida.SelectedDate, Llegada.SelectedDate, int.Parse(Capacidad.Text));
+                DateTime fechaLlegada = Salida.SelectedDate.AddHours(Convert.ToDouble(txtHoras.Text));
+                success = objV.registrarVuelo(Origen.SelectedValue, Destino.SelectedValue, generateCode(), Salida.SelectedDate, fechaLlegada, int.Parse(Capacidad.Text));
                 if (success)
                 {
                     cleanFields();
@@ -51,7 +52,7 @@ namespace Vista.Pages
             {
                 return false;
             }
-            //if (Salida.SelectedDate != null)
+            //if (Salida.SelectedDate)
             //{
             //    return false;
             //}
@@ -63,6 +64,10 @@ namespace Vista.Pages
             {
                 return false;
             }
+            if (txtHoras.Text == "")
+            {
+                return false;
+            }
             return true;
         }
 
@@ -71,9 +76,20 @@ namespace Vista.Pages
             Origen.SelectedIndex = 0;
             Destino.SelectedIndex = 0;
             Salida = null;
-            Llegada = null;
+            txtHoras.Text = "";
             Capacidad.Text = "";
         }
 
+        private String generateCode()
+        {
+            String code = "";
+            code = Origen.Text.Substring(0, 3).ToUpper() + Destino.Text.Substring(0, 3).ToUpper()+Salida.SelectedDate.Day.ToString();
+            return code;
+        }
+
+        protected void txtHoras_Changed(object sender, EventArgs e)
+        {
+
+        }
     }
 }
