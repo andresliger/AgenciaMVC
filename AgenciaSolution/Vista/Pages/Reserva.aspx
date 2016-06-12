@@ -9,7 +9,7 @@
                 <br />
                 <asp:Label ID="Label1" runat="server" Text="Ciudad Origen"></asp:Label>
                 <br />
-                <asp:DropDownList ID="dropOrigen" runat="server" Width="200px" BackColor="#ECEFF1" CssClass="btn-default">
+                <asp:DropDownList ID="dropOrigen" runat="server" Width="200px" BackColor="#ECEFF1" CssClass="btn-default" OnSelectedIndexChanged="dropOrigen_SelectedIndexChanged">
                     <asp:ListItem Text="Seleccione" Value="0" Selected="True"></asp:ListItem>
                     <asp:ListItem Text="Quito" Value="Quito"></asp:ListItem>
                     <asp:ListItem Text="Guayaquil" Value="Guayaquil"></asp:ListItem>
@@ -20,7 +20,7 @@
                 <br />
                 <asp:Label ID="Label2" runat="server" Text="Ciudad Destino"></asp:Label>
                 <br />
-                <asp:DropDownList ID="dropDestino" runat="server" Width="200px" BackColor="#ECEFF1" CssClass="btn-default">
+                <asp:DropDownList ID="dropDestino" runat="server" Width="200px" BackColor="#ECEFF1" CssClass="btn-default" OnSelectedIndexChanged="dropDestino_SelectedIndexChanged">
                     <asp:ListItem Text="Seleccione" Value="0" Selected="True"></asp:ListItem>
                     <asp:ListItem Text="Quito" Value="Quito"></asp:ListItem>
                     <asp:ListItem Text="Guayaquil" Value="Guayaquil"></asp:ListItem>
@@ -117,8 +117,6 @@
                 </div>
             </div>
             <br />
-
         </div>
     </div>
-
 </asp:Content>

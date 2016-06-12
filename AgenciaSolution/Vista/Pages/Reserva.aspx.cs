@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Controlador;
 
 namespace Vista.Pages
 {
     public partial class Reserva : System.Web.UI.Page
     {
+
+        private ReservaDAO objR = new ReservaDAO();
         public static Decimal IVA = new Decimal(0.14);
 
         protected void Page_Load(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace Vista.Pages
             Decimal ivaSubtotal;
             Decimal total;
             txtSubtotal.Text = subtotal.ToString();
-            ivaSubtotal = Convert.ToDecimal(txtSubtotal.Text) * IVA; 
+            ivaSubtotal = Convert.ToDecimal(txtSubtotal.Text) * IVA;
             txtIVA.Text = ivaSubtotal.ToString();
             total = Convert.ToDecimal(txtSubtotal.Text) + Convert.ToDecimal(txtIVA.Text);
             txtTotal.Text = total.ToString();
@@ -56,7 +59,17 @@ namespace Vista.Pages
 
         protected void ReservarVuelo(object sender, EventArgs e)
         {
-
+            int numAsientos = Convert.ToInt32(txtNumero.Text.ToString());
+            Decimal costo = Convert.ToDecimal(txtTotal.Text.ToString());
+            if (objR.registrarReserva(numAsientos, costo, Convert.ToInt32(Session["cod_usuario"]), Convert.ToInt32(GridView1.SelectedValue)))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Información", "alert('Registro realizado con éxito.');", true);
+                emptyFields();
+            }
+            else {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Error", "alert('Ha ocurrido un error - Intente de nuevo.');", true);
+                emptyFields();
+            }
         }
 
         public void emptyFields()
@@ -66,6 +79,17 @@ namespace Vista.Pages
             txtTotal.Text = "";
             dropTarifasDisponibles.Items.Clear();
             btnReservar.Visible = false;
+            GridView1.DataBind();
+        }
+
+        protected void dropOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            emptyFields();
+        }
+
+        protected void dropDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            emptyFields();
         }
     }
 }

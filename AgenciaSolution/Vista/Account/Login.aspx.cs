@@ -35,15 +35,17 @@ namespace Vista.Account
                 success=objDao.validateLogin(Email.Text.Trim(), Password.Text.Trim());
                 if (success.CompareTo("2")==0)
                 {
-                    Response.Redirect("/Pages/Reserva");
                     string display = "Bienvenido";
+                    Session["cod_usuario"] = objDao.retrieveUserLogged(Email.Text.Trim(), Password.Text.Trim());
                     ClientScript.RegisterStartupScript(this.GetType(), "yourMessage", "alert('" + display + "');", true);
+                    Response.Redirect("/Pages/Reserva");
                 }
                 else if(success.CompareTo("1") == 0)
                 {
-                    Response.Redirect("/Pages/Vuelos");
                     string display = "Bienvenido";
+                    Session["cod_usuario"] = objDao.retrieveUserLogged(Email.Text.Trim(), Password.Text.Trim());
                     ClientScript.RegisterStartupScript(this.GetType(), "yourMessage", "alert('" + display + "');", true);
+                    Response.Redirect("/Pages/Vuelos");
                 }
                 else
                 {

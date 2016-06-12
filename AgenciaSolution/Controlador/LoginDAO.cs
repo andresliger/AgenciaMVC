@@ -25,6 +25,12 @@ namespace Controlador
             return aux != null ? aux.USUARIO_ROL : "";
         }
 
+        public int retrieveUserLogged(String correo, String password) {
+            USUARIO aux;
+            aux = usuarios.Where(s => s.USUARIO_CORREO.Equals(correo) && s.USUARIO_CONTRASENA.Equals(Utils.Encrypt.MD5HashMethod(password))).FirstOrDefault<USUARIO>();
+            return aux != null ? aux.USUARIO_CODIGO : -1;
+        }
+
 
     }
 }

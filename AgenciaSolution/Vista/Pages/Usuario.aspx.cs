@@ -9,8 +9,7 @@ using Controlador;
 namespace Vista.Pages
 {
     public partial class Usuario : System.Web.UI.Page
-    {
-        private UsuarioDao objU= new UsuarioDao();        
+    {       
 
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -85,6 +85,7 @@ namespace Modelo
             Int32 cambios = 0;
             using (var db = new AgenciaContext())
             {
+                db.VUELOes.Attach(objA);
                 VUELO aux = new VUELO();
                 aux = db.VUELOes.Where(s => s.VUELO_CODIGO == objA.VUELO_CODIGO).FirstOrDefault<VUELO>();
 
@@ -95,6 +96,9 @@ namespace Modelo
 
                 db.Entry(aux).State = System.Data.Entity.EntityState.Modified;
                 cambios = db.SaveChanges();
+
+                
+                
             }
             return cambios > 0 ? true : false;
         }
@@ -118,10 +122,13 @@ namespace Modelo
             }
         }
 
-        public List<VUELO> mostrarVuelosDisponibles(String origen, String destino,DateTime salida, DateTime llegada)
+        public VUELO mostrarVuelosPorCodigo(int cod_vuelo)
         {
+            using (var db = new AgenciaContext())
+            {
+                return db.VUELOes.Where(s => s.VUELO_CODIGO == cod_vuelo).FirstOrDefault<VUELO>();
+            }
 
-            return null;
         }
 
         #endregion

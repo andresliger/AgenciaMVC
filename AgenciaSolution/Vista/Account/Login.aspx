@@ -3,13 +3,13 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2>Página Inicio Sesión</h2>
+    <h2 class="text-primary">Iniciar Sesión</h2>
 
     <div class="row">
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
-                    <h4>Use sus credenciales para el inicio de sesión</h4>
+                    <h5 class="text-info">Use sus credenciales para el inicio de sesión</h5>
                     <hr />
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
