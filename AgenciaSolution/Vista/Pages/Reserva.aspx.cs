@@ -9,6 +9,8 @@ namespace Vista.Pages
 {
     public partial class Reserva : System.Web.UI.Page
     {
+        public static Decimal IVA = new Decimal(0.14);
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,7 +27,45 @@ namespace Vista.Pages
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            //TextBox1.Text = Calendar1.SelectedDate.ToString();
+            emptyFields();
+
+        }
+
+        protected void dropTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            emptyFields();
+        }
+
+        protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
+
+        protected void dropTarifasDisponibles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Decimal subtotal = Convert.ToDecimal(dropTarifasDisponibles.SelectedValue.ToString()) * Convert.ToDecimal(txtNumero.Text);
+            Decimal ivaSubtotal;
+            Decimal total;
+            txtSubtotal.Text = subtotal.ToString();
+            ivaSubtotal = Convert.ToDecimal(txtSubtotal.Text) * IVA; 
+            txtIVA.Text = ivaSubtotal.ToString();
+            total = Convert.ToDecimal(txtSubtotal.Text) + Convert.ToDecimal(txtIVA.Text);
+            txtTotal.Text = total.ToString();
+            btnReservar.Visible = true;
+        }
+
+        protected void ReservarVuelo(object sender, EventArgs e)
+        {
+
+        }
+
+        public void emptyFields()
+        {
+            txtSubtotal.Text = "";
+            txtIVA.Text = "";
+            txtTotal.Text = "";
+            dropTarifasDisponibles.Items.Clear();
+            btnReservar.Visible = false;
         }
     }
 }

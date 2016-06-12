@@ -118,6 +118,12 @@ namespace Modelo
             }
         }
 
+        public List<VUELO> mostrarVuelosDisponibles(String origen, String destino,DateTime salida, DateTime llegada)
+        {
+
+            return null;
+        }
+
         #endregion
 
         #region CRUD_USUARIO
