@@ -23,13 +23,20 @@ namespace Vista.Pages
             Boolean success = false;
             if (validateCampos())
             {
-                success = td.registrarTarifa(Tipo.Text, Decimal.Parse(Costo.Text), Descripcion.Text, Decimal.Parse(Porcentaje.Text));
-                if (success)
+                if (validarPorcentajes(0))
                 {
-                    cleanFields();
-                    ScriptManager.RegisterStartupScript(this, GetType(), "Información", "alert('Registro realizado con éxito.');", true);
-                    GridView1.DataBind();
+                    success = td.registrarTarifa(Tipo.Text, Decimal.Parse(Costo.Text), Descripcion.Text, Decimal.Parse(Porcentaje.Text));
+                    if (success)
+                    {
+                        cleanFields();
+                        ScriptManager.RegisterStartupScript(this, GetType(), "Información", "alert('Registro realizado con éxito.');", true);
+                        GridView1.DataBind();
+                    }
                 }
+                else {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Error", "alert('No se puede exceder el 100%');", true);
+                }
+
             }
             else
             {
@@ -65,5 +72,11 @@ namespace Vista.Pages
             Descripcion.Text = "";
             Porcentaje.Text = "";
         }
+
+        private Boolean validarPorcentajes(Decimal last_value)
+        {
+            return objT.validatePercents(last_value, Convert.ToDecimal(Porcentaje.Text.ToString()));
+        }
+
     }
 }

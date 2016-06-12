@@ -51,7 +51,7 @@
 
     <br />
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="USUARIO_CODIGO" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." CssClass="table table-hover table-striped" GridLines="None" Font-Size="Small">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="USUARIO_CODIGO" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." CssClass="table table-hover table-striped" GridLines="None" Font-Size="Small" >
             <Columns>
                 <asp:BoundField DataField="USUARIO_CODIGO" HeaderText="USUARIO_CODIGO" InsertVisible="False" ReadOnly="True" SortExpression="USUARIO_CODIGO" Visible="False" />
                 <asp:BoundField DataField="USUARIO_NOMBRE" HeaderText="NOMBRE" SortExpression="USUARIO_NOMBRE" />

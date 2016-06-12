@@ -19,7 +19,7 @@ namespace Modelo
             using (var db = new AgenciaContext())
             {
                 db.AGENCIAs.Add(objA);
-                cambios=db.SaveChanges();
+                cambios = db.SaveChanges();
             }
             return cambios > 0 ? true : false;
         }
@@ -30,7 +30,7 @@ namespace Modelo
             using (var db = new AgenciaContext())
             {
                 AGENCIA aux = new AGENCIA();
-                aux=db.AGENCIAs.Where(s => s.AGENCIA_CODIGO == objA.AGENCIA_CODIGO).FirstOrDefault<AGENCIA>();
+                aux = db.AGENCIAs.Where(s => s.AGENCIA_CODIGO == objA.AGENCIA_CODIGO).FirstOrDefault<AGENCIA>();
 
                 if (aux != null)
                 {
@@ -38,7 +38,7 @@ namespace Modelo
                 }
 
                 db.Entry(aux).State = System.Data.Entity.EntityState.Modified;
-                cambios=db.SaveChanges();
+                cambios = db.SaveChanges();
             }
             return cambios > 0 ? true : false;
         }
@@ -47,9 +47,9 @@ namespace Modelo
         {
             Int32 cambios = 0;
             using (var db = new AgenciaContext())
-            {                
+            {
                 db.AGENCIAs.Remove(objA);
-                cambios=db.SaveChanges();
+                cambios = db.SaveChanges();
             }
             return cambios > 0 ? true : false;
         }
@@ -90,15 +90,15 @@ namespace Modelo
                 aux = db.VUELOes.Where(s => s.VUELO_CODIGO == objA.VUELO_CODIGO).FirstOrDefault<VUELO>();
 
                 if (aux != null)
-                {                    
-                    aux = objA;   
+                {
+                    aux = objA;
                 }
 
                 db.Entry(aux).State = System.Data.Entity.EntityState.Modified;
                 cambios = db.SaveChanges();
 
-                
-                
+
+
             }
             return cambios > 0 ? true : false;
         }
@@ -155,7 +155,7 @@ namespace Modelo
             using (var db = new AgenciaContext())
             {
                 USUARIO aux = new USUARIO();
-                aux = db.USUARIOs.Where(s => s.USUARIO_CODIGO== objA.USUARIO_CODIGO).FirstOrDefault<USUARIO>();
+                aux = db.USUARIOs.Where(s => s.USUARIO_CODIGO == objA.USUARIO_CODIGO).FirstOrDefault<USUARIO>();
 
                 if (aux != null)
                 {
@@ -267,7 +267,7 @@ namespace Modelo
             using (var db = new AgenciaContext())
             {
                 VUELO_RESERVA aux = new VUELO_RESERVA();
-                aux = db.VUELO_RESERVA.Where(s => s.VUELO_CODIGO == objA.VUELO_CODIGO && s.RESERVA_CODIGO==objA.RESERVA_CODIGO).FirstOrDefault<VUELO_RESERVA>();
+                aux = db.VUELO_RESERVA.Where(s => s.VUELO_CODIGO == objA.VUELO_CODIGO && s.RESERVA_CODIGO == objA.RESERVA_CODIGO).FirstOrDefault<VUELO_RESERVA>();
 
                 if (aux != null)
                 {
@@ -353,6 +353,26 @@ namespace Modelo
             {
                 return db.TARIFAs.ToList();
             }
+        }
+
+        public Boolean validatePercent(Decimal last_value, Decimal new_value)
+        {
+            List<TARIFA> tarifas = new List<TARIFA>();
+            Decimal suma = 0;
+            using (var db = new AgenciaContext())
+            {
+                tarifas = db.TARIFAs.ToList();
+                for (int i = 0; i < tarifas.Count; i++)
+                {
+                    suma += (Decimal)tarifas[i].TARIFA_PORCENTAJE;
+                }
+
+                suma = suma - last_value + new_value;
+            }
+            if (suma <= 100)
+                return true;
+            else
+                return false;
         }
 
         #endregion

@@ -33,7 +33,7 @@
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Porcentaje" CssClass="col-md-2 control-label">Porcentaje</asp:Label>
                 <div class="col-md-10">
-                    <asp:TextBox runat="server" ID="Porcentaje" CssClass="form-control" />
+                    <asp:TextBox runat="server" ID="Porcentaje" CssClass="form-control" TextMode="Number" />
                 </div>
             </div>
             <div class="form-group">
@@ -52,7 +52,7 @@
                 <asp:BoundField DataField="TARIFA_COSTO" HeaderText="COSTO" SortExpression="TARIFA_COSTO" />
                 <asp:BoundField DataField="TARIFA_DESCRIPCION" HeaderText="DESCRIPCION" SortExpression="TARIFA_DESCRIPCION" />
                 <asp:BoundField DataField="TARIFA_PORCENTAJE" HeaderText="PORCENTAJE" SortExpression="TARIFA_PORCENTAJE" />
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"/>                
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AgenciaContext %>" DeleteCommand="DELETE FROM [TARIFA] WHERE [TARIFA_CODIGO] = @TARIFA_CODIGO" InsertCommand="INSERT INTO [TARIFA] ([TARIFA_TIPO], [TARIFA_COSTO], [TARIFA_DESCRIPCION], [TARIFA_PORCENTAJE]) VALUES (@TARIFA_TIPO, @TARIFA_COSTO, @TARIFA_DESCRIPCION, @TARIFA_PORCENTAJE)" SelectCommand="SELECT [TARIFA_CODIGO], [TARIFA_TIPO], [TARIFA_COSTO], [TARIFA_DESCRIPCION], [TARIFA_PORCENTAJE] FROM [TARIFA]" UpdateCommand="UPDATE [TARIFA] SET [TARIFA_TIPO] = @TARIFA_TIPO, [TARIFA_COSTO] = @TARIFA_COSTO, [TARIFA_DESCRIPCION] = @TARIFA_DESCRIPCION, [TARIFA_PORCENTAJE] = @TARIFA_PORCENTAJE WHERE [TARIFA_CODIGO] = @TARIFA_CODIGO">

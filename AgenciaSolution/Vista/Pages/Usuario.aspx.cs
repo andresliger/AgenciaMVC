@@ -9,7 +9,7 @@ using Controlador;
 namespace Vista.Pages
 {
     public partial class Usuario : System.Web.UI.Page
-    {       
+    {
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -76,5 +76,6 @@ namespace Vista.Pages
             Password.Text = "";
             ConfirmPassword.Text = "";
         }
+
     }
 }

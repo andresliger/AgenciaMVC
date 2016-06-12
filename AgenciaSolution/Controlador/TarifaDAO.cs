@@ -43,5 +43,11 @@ namespace Controlador
             success = fa.insertaTarifa(tarifa);
             return success;
         }
+
+        public Boolean validatePercents(Decimal last_value,Decimal new_value)
+        {
+            objF = new FacadeAgencia();
+            return objF.validatePercent(last_value, new_value);
+        }
     }
 }
