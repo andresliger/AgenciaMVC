@@ -13,6 +13,7 @@
                     <asp:ListItem Text="Select Gender" Value="0"></asp:ListItem>
                     <asp:ListItem Text="Male" Value="1"></asp:ListItem>
                     <asp:ListItem Text="Female" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="Mix" Value="3"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
                 <br />
