@@ -299,6 +299,24 @@ namespace Modelo
             }
         }
 
+        public List<VUELO_RESERVA> mostrarVuelosReservaPorCodigoUsuario(int cod_usuario)
+        {
+            using (var db = new AgenciaContext())
+            {
+                List<VUELO_RESERVA> lista = new List<VUELO_RESERVA>();
+                List<RESERVA> reservas = mostrarReservas();
+                List<RESERVA> reservasAux = reservas.Where(s => s.USUARIO_CODIGO == cod_usuario).ToList();
+
+                for (int i = 0; i < reservasAux.Count; i++)
+                {
+                    lista.Union(db.VUELO_RESERVA.Where(s => s.RESERVA_CODIGO == reservasAux[i].RESERVA_CODIGO).ToList());
+                }
+                return lista;
+            }
+
+        }
+
+
         #endregion
 
         #region CRUD_TARIFA
